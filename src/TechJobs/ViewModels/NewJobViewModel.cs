@@ -16,16 +16,16 @@ namespace TechJobs.ViewModels
         public int EmployerID { get; set; }
 
         [Required]
-        [Display(Name = "Core Competence")]
-        public string CoreCompetence { get; set; }
+        [Display(Name = "Skill")]
+        public int CoreCompetenceID { get; set; }
 
         [Required]
         [Display(Name = "Location")]
-        public string Location { get; set; }
+        public int LocationID { get; set; }
 
         [Required]
         [Display(Name = "Position Type")]
-        public string PostionType { get; set; }
+        public int PositionTypeID { get; set; }
 
 
 
@@ -47,6 +47,33 @@ namespace TechJobs.ViewModels
                 Employers.Add(new SelectListItem {
                     Value = field.ID.ToString(),
                     Text = field.Value
+                });
+            }
+
+            foreach (Location field in jobData.Locations.ToList())
+            {
+                Locations.Add(new SelectListItem {
+                    Value = field.ID.ToString(),
+                    Text = field.Value
+
+                });
+            }
+
+            foreach (CoreCompetency field in jobData.CoreCompetencies.ToList())
+            {
+                CoreCompetencies.Add(new SelectListItem {
+                    Value = field.ID.ToString(),
+                    Text = field.Value
+
+                });
+            }
+
+            foreach (PositionType field in jobData.PositionTypes.ToList())
+            {
+                PositionTypes.Add(new SelectListItem{
+                    Value = field.ID.ToString(),
+                    Text = field.Value
+
                 });
             }
 
